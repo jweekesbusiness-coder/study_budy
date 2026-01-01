@@ -3,12 +3,20 @@
 {%block content%}
 
 <h1>HOME PAGE</h1>
+<a href={%url 'create-room'%}>Create Room</a>
+
+<hr>
 <div>
+    
     <div>
         {%for room in rooms%}
             <div>
+                <a href={%url 'update-room' pk=room.id%}>Edit</a>
+                <span>@{{room.host.username}}</span>
                <a href={%url 'room' pk=room.id%}> <h5>{{room.id}} -- {{room.name}}</h5></a>
+               <span>Topic - {{room.topic.name}}</span>
             </div>
+            <hr>
         {%endfor%}
     </div>
 </div>
